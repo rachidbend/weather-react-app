@@ -1,38 +1,34 @@
-export function Highlights() {
+import { HighlightContainer } from './HighlightContainer';
+import { HighlightHumidity } from './HighlightHumidity';
+import { HighlightPressure } from './HighlightPressure';
+import { HighlightVisibility } from './HighlightVisibility';
+import { HighlightWind } from './HighlightWind';
+
+/* eslint-disable react/prop-types */
+export function Highlights({ weatherData }) {
+  console.log(weatherData);
   return (
     <div className="highlights">
       <h3>Today&apos;s Hightlights</h3>
       <div className="highlights-container">
-        <div className="highlight highlight--wind">
-          <p className="highlight--title">Wind status</p>
-          <p className="highlight--wind-speed">7mph</p>
-          <p className="highlight--wind-direction">
-            <span className="highlight--wind-direction--icon"></span>
-            WSW
-          </p>
-        </div>
-        {/*  */}
-        <div className="highlight highlight--wind">
-          <p className="highlight--title">Humidity</p>
-          <p className="highlight--humidity">84%</p>
-          <input
-            type="range"
-            max={100}
-            min={0}
-            id="highlight--humidity--range"
-            value={84}
+        <HighlightContainer className="wind">
+          <HighlightWind
+            windSpeed={weatherData.wind.speed}
+            windDirection={weatherData.wind.deg}
           />
-        </div>
+        </HighlightContainer>
         {/*  */}
-        <div className="highlight highlight--wind">
-          <p className="highlight--title">Visibility</p>
-          <p className="highlight--visibility">6.4 miles</p>
-        </div>
+        <HighlightContainer className="humidity">
+          <HighlightHumidity humidity={weatherData.main.humidity} />
+        </HighlightContainer>
         {/*  */}
-        <div className="highlight highlight--wind">
-          <p className="highlight--title">Air Pressure</p>
-          <p className="highlight--air-pressure">998mb</p>
-        </div>
+        <HighlightContainer className="visibility">
+          <HighlightVisibility visibility={weatherData.visibility} />
+        </HighlightContainer>
+        {/*  */}
+        <HighlightContainer className="pressure">
+          <HighlightPressure airPressure={weatherData.main.pressure} />
+        </HighlightContainer>
         {/*  */}
       </div>
     </div>

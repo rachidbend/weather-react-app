@@ -11,17 +11,18 @@ import IconSnow from './assets/Snow.png';
 import IconThunderstorm from './assets/Thunderstorm.png';
 
 export function WeatherIcon({ weather }) {
-  if (weather === 'clear') return <img src={IconClear} alt="Clear sky" />;
+  if (weather === 'clear' || weather === 'clear sky')
+    return <img src={IconClear} alt="Clear sky" />;
 
   if (weather === 'hail') return <img src={IconHail} alt="Clear sky" />;
 
-  if (weather === 'heavy cloud')
+  if (weather === 'heavy cloud' || weather === 'overcast clouds')
     return <img src={IconHeavyCloud} alt="Clear sky" />;
 
   if (weather === 'heavy rain')
     return <img src={IconHeavyRain} alt="Clear sky" />;
 
-  if (weather === 'light cloud')
+  if (weather === 'light cloud' || weather === 'few clouds')
     return <img src={IconLightCloud} alt="Clear sky" />;
 
   if (weather === 'light rain')

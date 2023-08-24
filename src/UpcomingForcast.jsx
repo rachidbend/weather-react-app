@@ -1,51 +1,20 @@
-export function UpcomingForcast() {
+/* eslint-disable react/prop-types */
+import { ForcastOfDay } from './ForcastOfDay';
+
+// this gets the forcast which is an array of the weather in the next 5 days
+export function UpcomingForcast({ weatherForcast }) {
+  console.log(weatherForcast);
   return (
     <div className="upcomming-forcast">
-      <div className="day-forcast">
-        <p>Tomorrow</p>
-        <p>this is an image of the forcast</p>
-        <div>
-          <p className="upcomming-forcast--max">16C</p>
-          <p className="upcomming-forcast--min">11C</p>
-        </div>
-      </div>
-      {/*  */}
-      <div className="day-forcast">
-        <p>Tomorrow</p>
-        <p>this is an image of the forcast</p>
-        <div>
-          <p className="upcomming-forcast--max">16C</p>
-          <p className="upcomming-forcast--min">11C</p>
-        </div>
-      </div>
-      {/*  */}
-      <div className="day-forcast">
-        <p>Tomorrow</p>
-        <p>this is an image of the forcast</p>
-        <div>
-          <p className="upcomming-forcast--max">16C</p>
-          <p className="upcomming-forcast--min">11C</p>
-        </div>
-      </div>
-      {/*  */}
-      <div className="day-forcast">
-        <p>Tomorrow</p>
-        <p>this is an image of the forcast</p>
-        <div>
-          <p className="upcomming-forcast--max">16C</p>
-          <p className="upcomming-forcast--min">11C</p>
-        </div>
-      </div>
-      {/*  */}
-      <div className="day-forcast">
-        <p>Tomorrow</p>
-        <p>this is an image of the forcast</p>
-        <div>
-          <p className="upcomming-forcast--max">16C</p>
-          <p className="upcomming-forcast--min">11C</p>
-        </div>
-      </div>
-      {/*  */}
+      {weatherForcast.map((forcast, i) => (
+        <ForcastOfDay
+          dayDate={forcast.dt_txt}
+          maxTemp={(forcast.main.temp_max - 273.15).toFixed(1)}
+          minTemp={(forcast.main.temp_min - 273.15).toFixed(1)}
+          weather={forcast.weather.at(0).description}
+          key={`${new Date()}-${weatherForcast.dt}${i}`}
+        />
+      ))}
     </div>
   );
 }

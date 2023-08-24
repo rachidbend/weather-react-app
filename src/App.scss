@@ -1,7 +1,405 @@
-.search {
-  display: none;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+  font-family: 'Raleway', sans-serif;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+// font-family: 'Raleway', sans-serif;
+
+.app {
+  display: grid;
+  grid-template-columns: 31.875% 1fr;
+  height: 100vh;
+}
+
+.current-weather-panel {
+  background-color: hsla(234, 32%, 17%, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.btn {
+  border: none;
+  background: none;
+  font-family: 'Raleway', sans-serif;
+  cursor: pointer;
+}
+.current-weather-panel--btn-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 4.2rem 4.6rem;
+  padding-bottom: 0;
+  // margin-bottom: 10.9rem;
+}
+
+.btn--search--open {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.9rem;
+  letter-spacing: 0rem;
+  text-align: left;
+  color: hsla(240, 9%, 91%, 1);
+  padding: 1rem 1.8rem;
+  background-color: #6e707a;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.btn--curr-location {
+  background-color: #6e707a;
+  color: hsla(240, 9%, 91%, 1);
+  height: 4rem;
+  width: 4rem;
+  border-radius: 5rem;
+
+  img {
+    width: 2.4rem;
+    height: 2.4rem;
+    // stroke: hsla(240, 9%, 91%, 1);
+    // color: hsla(240, 9%, 91%, 1);
+    // fill: hsla(240, 9%, 91%, 1);
+  }
+}
+
+.weather-icon--container {
+  width: 20.2rem;
+  height: 23.4rem;
+  margin: 0 auto;
+  margin-top: 2.2rem;
+  // margin-bottom: 8.7rem;
+}
+
+.current-weather--degree {
+  color: #e7e7eb;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: center;
+  // margin-bottom: 8.7rem;
+}
+
+.current-weather--description {
+  color: #a09fb1;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 3.6rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  // margin-bottom: 8.7rem;
+}
+
+.weather--date {
+  color: #88869d;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: center;
+}
+
+.current-weather-panel--degree-symbol {
+  color: #a09fb1;
+  font-family: 'Raleway', sans-serif;
+  font-size: 4.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.weather--date {
+  // margin-bottom: 3.2rem;
+}
+
+.weather--date--sepirate {
+  margin: 0 1rem;
+}
+.current-weather-panel--city {
+  color: #88869d;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+  padding-bottom: 5.2rem;
+  img {
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-right: 1rem;
+  }
+}
+
+// ////////////////////////////
+// ///////////////////////////
+
+.search {
+  position: absolute;
+  height: 100vh;
+  width: 31.875%;
+  left: -31.875%;
+  background-color: #1e213a;
+  transition: 400ms;
+  padding: 1.2rem 4.6rem;
+}
+
+// .search {
+//   display: none;
+// }
+
 .active {
-  display: block;
+  // display: block;
+  left: 0;
+}
+.search--btn-container {
+  display: flex;
+  justify-content: right;
+  // padding: 1rem;
+}
+.btn--close-search {
+  width: 3.2rem;
+  height: 3.2rem;
+  color: hsla(240, 9%, 91%, 1);
+  font-size: 2rem;
+  text-align: center;
+}
+
+.btn--search {
+  background-color: hsla(236, 80%, 57%, 1);
+  color: #e7e7eb;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding: 1.4rem 1.9rem;
+}
+
+.input-search--container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  gap: 1rem;
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+#input-search {
+  min-width: 3rem;
+  border: 1px solid #e7e7eb;
+  background: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: hsla(240, 9%, 91%, 1);
+  padding: 0 1rem;
+  outline: none;
+  &::placeholder {
+    color: #616475;
+  }
+}
+
+.search--city {
+  color: #e7e7eb;
+  font-family: 'Raleway', sans-serif;
+  padding: 2.2rem 1.2rem;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border: 1px solid #616475;
+  margin: 2.4rem 0;
+  cursor: pointer;
+}
+
+// //////////////////////////////
+// //////////////////////////////
+
+.forcast-container {
+  background-color: #100e1d;
+  padding-left: 15.4rem;
+  // width: 85.8rem;
+}
+.upcomming-forcast {
+  display: flex;
+  gap: 2.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 7.2rem;
+}
+
+.day-forcast {
+  background-color: hsla(234, 32%, 17%, 1);
+  padding: 1.8rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 12rem;
+  height: 17.7rem;
+
+  .day-forcast--date {
+    color: #e7e7eb;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+  }
+
+  .day-forcast--max-min {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+  }
+  .day-forcast--max {
+    color: #e7e7eb;
+    font-family: 'Raleway', sans-serif;
+
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  .day-forcast--min {
+    color: #a09fb1;
+    font-family: 'Raleway', sans-serif;
+
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+
+.day-forcast--weather {
+  width: 5.6439rem;
+  height: 6.2rem;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+// //////////////////////////////
+// //////////////////////////////
+
+.highlights {
+  h3 {
+    color: #e7e7eb;
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 3.2rem;
+  }
+}
+.highlights-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 20.4rem 15.9rem;
+  gap: 4.8rem;
+  width: 70.4rem;
+}
+.highlight {
+  background-color: hsla(234, 32%, 17%, 1);
+  width: 32.8rem;
+  font-size: 1.8rem;
+  color: #fff;
+  text-align: center;
+  padding: 2.2rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .highlight--title {
+    color: #e7e7eb;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .highlight--stat {
+    color: #e7e7eb;
+    font-family: 'Raleway', sans-serif;
+    font-size: 6.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  .highlight--wind-speed {
+  }
+  .highlight--wind-direction {
+  }
+
+  .highlight--humidity {
+  }
+
+  #highlight--humidity--range {
+  }
+  .highlight--visibility {
+  }
+  .highlight--air-pressure {
+  }
+  .highlight--unit {
+    font-size: 3.2rem;
+  }
+}
+
+.degree-toggle {
+  margin-top: 4.2rem;
+  margin-bottom: 6.6rem;
+  display: flex;
+  justify-content: right;
+  gap: 1.2rem;
+  width: 70.4rem;
+}
+.btn--celcuic {
+  width: 4rem;
+  height: 4rem;
+  background-color: hsla(244, 16%, 40%, 1);
+  color: hsla(240, 9%, 91%, 1);
+  border-radius: 5rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.8rem;
+}
+.btn--ferinhiet {
+  width: 4rem;
+  height: 4rem;
+  background-color: hsla(244, 16%, 40%, 1);
+  color: hsla(240, 9%, 91%, 1);
+  border-radius: 5rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.8rem;
+}
+
+.degree--active {
+  background-color: hsla(240, 9%, 91%, 1);
+  color: hsla(244, 62%, 15%, 1);
+}
+.degree--degree {
+  font-size: 1.8rem;
 }
