@@ -102,19 +102,31 @@ export default function App() {
   }
 
   async function handleSearch() {
-    // 1- add to search history, query, and toggle search panel
-    setSearchHistory(history => [query, ...history]);
-    setCityName(query);
-    setSearchToggle(false);
+    try {
+      // 1- add to search history, query, and toggle search panel
+      setSearchHistory(history => [query, ...history]);
+      setCityName(query);
+      setSearchToggle(false);
 
-    // 2- get the city coords
-    const { lat, lon } = await getCityByName(query);
-    // 3- get the weather for the city
-    //  or show an error message
-    const weather = await getWeather(lat, lon);
-    setWeatherData(weather);
-    // 4- reset the search query
-    setQuery('');
+      // 2- get the city coords
+      const { lat, lon } = await getCityByName(query);
+      if (!lat || !lon)
+        throw new Error(
+          'the coords of the city you requested were not recieved'
+        );
+      // 3- get the weather for the city
+      //  or show an error message
+      const weather = await getWeather(lat, lon);
+      if (!weather)
+        throw new Error(
+          'something went whrong with fetching the weather of the city you requested'
+        );
+      setWeatherData(weather);
+      // 4- reset the search query
+      setQuery('');
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   async function handleHistoryClick(cityName) {
