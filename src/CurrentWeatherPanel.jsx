@@ -8,6 +8,7 @@ export function CurrentWeatherPanel({
   onToggleSearch,
   weatherToday,
   cityName,
+  onGetUserPosition,
 }) {
   const todaysDate = formatDate(weatherToday.dt_txt);
 
@@ -20,7 +21,7 @@ export function CurrentWeatherPanel({
         >
           Search for places
         </button>
-        <button className="btn btn--curr-location">
+        <button className="btn btn--curr-location" onClick={onGetUserPosition}>
           <img src={gpsFixedIcon} alt="get your location" />
         </button>
       </div>

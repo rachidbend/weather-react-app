@@ -174,6 +174,15 @@ img {
   color: hsla(240, 9%, 91%, 1);
   font-size: 2rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3.8rem;
+
+  .btn--close-search-icon {
+    width: 1.76rem;
+    height: auto;
+  }
 }
 
 .btn--search {
@@ -193,11 +202,7 @@ img {
   justify-content: space-between;
   position: relative;
   gap: 1rem;
-  label {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+  position: relative;
 }
 
 #input-search {
@@ -210,11 +215,29 @@ img {
   font-weight: 500;
   line-height: normal;
   color: hsla(240, 9%, 91%, 1);
-  padding: 0 1rem;
+  padding: 1.2rem 1.2rem;
+  padding-left: 4.9rem;
   outline: none;
   &::placeholder {
     color: #616475;
   }
+}
+
+.input-search--label {
+  width: 2.4rem;
+  height: 2.4rem;
+  position: absolute;
+  top: 50%;
+  left: 1.2rem;
+  transform: translateY(-50%);
+}
+.search--city-arrow {
+  margin-left: auto;
+
+  opacity: 0;
+  width: 2.4rem;
+  height: 2.4rem;
+  transition: 400ms;
 }
 
 .search--city {
@@ -224,10 +247,19 @@ img {
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 500;
+  border: 1px solid transparent;
   line-height: normal;
-  border: 1px solid #616475;
   margin: 2.4rem 0;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  transition: 400ms;
+  &:hover {
+    border: 1px solid #616475;
+    .search--city-arrow {
+      opacity: 1;
+    }
+  }
 }
 
 // //////////////////////////////

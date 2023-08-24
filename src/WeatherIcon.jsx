@@ -12,28 +12,35 @@ import IconThunderstorm from './assets/Thunderstorm.png';
 
 export function WeatherIcon({ weather }) {
   if (weather === 'clear' || weather === 'clear sky')
-    return <img src={IconClear} alt="Clear sky" />;
+    return <img src={IconClear} />;
 
-  if (weather === 'hail') return <img src={IconHail} alt="Clear sky" />;
+  if (weather === 'hail') return <img src={IconHail} />;
 
-  if (weather === 'heavy cloud' || weather === 'overcast clouds')
-    return <img src={IconHeavyCloud} alt="Clear sky" />;
+  if (
+    weather === 'heavy cloud' ||
+    weather === 'overcast clouds' ||
+    weather === 'broken clouds' ||
+    weather === 'overcast clouds'
+  )
+    return <img src={IconHeavyCloud} />;
 
-  if (weather === 'heavy rain')
-    return <img src={IconHeavyRain} alt="Clear sky" />;
+  if (weather === 'heavy rain') return <img src={IconHeavyRain} />;
 
-  if (weather === 'light cloud' || weather === 'few clouds')
-    return <img src={IconLightCloud} alt="Clear sky" />;
+  if (
+    weather === 'light cloud' ||
+    weather === 'few clouds' ||
+    weather === 'scattered clouds'
+  )
+    return <img src={IconLightCloud} />;
 
-  if (weather === 'light rain')
-    return <img src={IconLightRain} alt="Clear sky" />;
+  if (weather === 'light rain' || weather.includes('drizzle'))
+    return <img src={IconLightRain} />;
 
-  if (weather === 'shower') return <img src={IconShower} alt="Clear sky" />;
+  if (weather === 'shower') return <img src={IconShower} />;
 
-  if (weather === 'sleet') return <img src={IconSleet} alt="Clear sky" />;
+  if (weather === 'sleet') return <img src={IconSleet} />;
 
-  if (weather === 'snow') return <img src={IconSnow} alt="Clear sky" />;
+  if (weather === 'snow') return <img src={IconSnow} />;
 
-  if (weather === 'thunderstorm')
-    return <img src={IconThunderstorm} alt="Clear sky" />;
+  if (weather.includes('thunderstorm')) return <img src={IconThunderstorm} />;
 }
