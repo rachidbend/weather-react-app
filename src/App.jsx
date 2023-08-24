@@ -33,7 +33,7 @@ export default function App() {
   async function getWeather(lat, lon) {
     try {
       const res = await fetch(
-        `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${KEY}`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${KEY}`
       );
       const data = await res.json();
 
